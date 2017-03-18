@@ -1,0 +1,50 @@
+<html ng-app="filterApp">
+<head>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="container" ng-controller="UserController" ng-init="initUserController">
+    <h1 class="heading">Sample Filters using AngularJS</h1>
+    <div class="filter-div">
+        <div>
+            <label>Gender</label>
+            <div ng-repeat="gender in userData | unique:'gender' | orderBy:'city'">
+                <input type="checkbox" ng-click="modifyGenderFilter(gender.gender)"/> {{ gender.gender }}
+            </div>
+        </div>
+        <div>
+            <label>State</label>
+            <div ng-repeat="state in userData | unique:'state' | orderBy:'state'">
+                <input type="checkbox" ng-click="modifyStateFilter(state.state)"/> {{ state.state }}
+            </div>
+        </div>
+        <div>
+            <label>City</label>
+            <div ng-repeat="city in userData | unique:'city' | orderBy:'city'">
+                <input type="checkbox" ng-click="modifyCityFilter(city.city)"/> {{ city.city }}
+            </div>
+        </div>
+    </div>
+    <div class="user-div">
+        <table class="user-table">
+            <tr>
+                <th>Name&nbsp;<small ng-click="changeSort('name')">Sort</small></th>
+                <th>Gender&nbsp;<small ng-click="changeSort('gender')">Sort</small></th>
+                <th>State&nbsp;<small ng-click="changeSort('state')">Sort</small></th>
+                <th>City&nbsp;<small ng-click="changeSort('city')">Sort</small></th>
+                <th>Postcode&nbsp;<small ng-click="changeSort('postcode')">Sort</small></th>
+            </tr>
+            <tr ng-repeat="user in filteredUsers = (userData | filter:applyGenderFilter | filter:applyStateFilter | filter:applyCityFilter) | orderBy:sortParameter">
+                <td>{{user.name}}</td>
+                <td>{{user.gender}}</td>
+                <td>{{user.state}}</td>
+                <td>{{user.city}}</td>
+                <td>{{user.postcode}}</td>
+            </tr>
+        </table>
+    </div>
+    <div style="clear:both;"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.8/angular-filter.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

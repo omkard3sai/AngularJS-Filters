@@ -1,0 +1,59 @@
+.container{
+    margin: 0;
+    display: block;
+    background-color: #222222;
+}
+.heading{
+    text-align: center;
+    padding: 20px;
+    background-color: #888888;
+    border: 2px solid #000000;
+}
+.filter-div{
+    float: left;
+    width: 48%;
+}
+.user-div{
+    float: right;
+    width: 50%;
+    text-align: center;
+    border-left: 5px solid #FFFFFF;
+}
+.filter-div > div {
+    padding: 5px;
+    margin: 0 20px;
+    float: left;
+    display: block;
+    background-color: #888888;
+    text-transform: capitalize;
+}
+.filter-div label {
+    font-weight: bold;
+    display: block;
+    padding: 2px 5px;
+    border-top: 1px solid #222222;
+    border-bottom: 1px solid #222222;
+}
+.user-table{
+    margin: 0 auto;
+    background-color: #888888;
+    border: 2px solid #000000;
+}
+.user-table td,th{
+    text-transform: capitalize;
+    text-align: left;
+    padding: 2px 5px;
+    border-right: 1px solid #222222;
+}
+.user-table td:last-child,th:last-child{
+    border-right: 0;
+}
+.user-table th{
+    border-bottom: 1px solid #222222;
+}
+.user-table th small{
+    color: #333333;
+    cursor:pointer;
+    border-left: 2px solid #333333;
+    padding: 0 5px;
+}
